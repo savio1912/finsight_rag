@@ -1,0 +1,26 @@
+# Environment
+.env
+__pycache__/
+*.pyc
+*.pyo
+.Python
+
+# Data (too large for git)
+data/raw/
+data/processed/
+
+# Vector store (rebuilt from data)
+chroma_db/
+
+# Virtual environment
+venv/
+.venv/
+myvenv/
+.myvenv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store

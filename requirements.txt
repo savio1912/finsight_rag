@@ -1,0 +1,34 @@
+# Core LangChain
+langchain==0.3.25
+langchain-community==0.3.24
+langchain-huggingface==0.1.2
+langchain-experimental==0.3.4
+langchain-ollama==0.3.2
+
+# LLM (local via Ollama)
+ollama
+
+# Vector store
+faiss-cpu==1.9.0
+
+# Sparse retrieval
+rank-bm25==0.2.2
+
+# Embeddings
+sentence-transformers==3.4.1
+
+# PDF parsing
+pymupdf==1.25.5
+
+# Evaluation
+ragas==0.2.14
+datasets
+
+# UI
+streamlit==1.45.0
+
+# Utilities
+python-dotenv==1.0.0
+pydantic>=2.7.4,<3
+pandas
+tqdm
