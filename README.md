@@ -102,4 +102,4 @@ streamlit run app.py
 ## Author
 
 Savio — Data Scientist with 3 years experience in NLP and LLMs.
-[LinkedIn](https://linkedin.com/in/YOUR_PROFILE)
+[LinkedIn](https://www.linkedin.com/in/savio-albert-53b162191/)
