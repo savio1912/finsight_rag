@@ -71,3 +71,21 @@ def load_pdf(file_path: str | Path) -> List[Document]:
         cleaned_pages.append(page)
         print(f"Loaded {len(cleaned_pages)} pages from {file_path.name}", end="\r")
         return cleaned_pages
+
+def load_all_pdfs(data_dir: str | Path) -> List[Document]:
+    """
+    Load every PDF in a directory.
+    """
+    data_dir = Path(data_dir)
+    pdf_files = list(data_dir.glob("*.pdf"))
+
+    if not pdf_files:
+        raise ValueError(f"No PDF files found in {data_dir}")
+
+    all_documents = []
+    for pdf_file in sorted(pdf_files):
+        docs = load_pdf(pdf_file)
+        all_documents.extend(docs)
+
+    print(f"\nTotal pages loaded: {len(all_documents)} from {len(pdf_files)} files")
+    return all_documents

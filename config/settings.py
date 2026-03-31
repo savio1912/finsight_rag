@@ -9,7 +9,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_RAW_DIR = BASE_DIR / "data" / "raw"
 DATA_PROCESSED_DIR = BASE_DIR / "data" / "processed"
-CHROMA_DIR = BASE_DIR / "chroma_db"
+FAISS_DIR  = BASE_DIR / "faiss_db"
 
 # ── Embedding model ────────────────────────────────────
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
@@ -34,6 +34,6 @@ LLM_MAX_TOKENS = 512
 EVAL_SAMPLE_SIZE = 30          # Number of Q&A pairs in our test set
 RAGAS_LLM = "mistral"          # LLM used by RAGAS to judge answers
 
-# ── Collection name (ChromaDB) ─────────────────────────
-CHROMA_COLLECTION = "finsight_docs"
+# ── Collection name (FAISS) ─────────────────────────
+FAISS_COLLECTION = "finsight_docs"
 VECTOR_STORE_TYPE = "faiss"

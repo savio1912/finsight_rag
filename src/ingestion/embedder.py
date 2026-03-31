@@ -4,7 +4,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 from config.settings import CHUNK_STRATEGY, CHUNK_SIZE, CHUNK_OVERLAP, EMBEDDING_MODEL
 
-def get_embedding_model(L) -> HuggingFaceEmbeddings:
+def get_embedding_model() -> HuggingFaceEmbeddings:
     """
     Initialize and return a HuggingFaceEmbeddings instance.
     This will be used for both semantic chunking and dense retrieval.
