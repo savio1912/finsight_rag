@@ -6,8 +6,8 @@ __pycache__/
 .Python
 
 # Data (too large for git)
-data/raw/
-data/processed/
+# data/raw/
+# data/processed/
 
 # Vector store (rebuilt from data)
 chroma_db/
