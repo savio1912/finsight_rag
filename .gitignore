@@ -11,7 +11,7 @@ data/processed/
 
 # Vector store (rebuilt from data)
 chroma_db/
-
+faiss_db/
 # Virtual environment
 venv/
 .venv/
