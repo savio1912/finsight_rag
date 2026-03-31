@@ -99,6 +99,11 @@ streamlit run app.py
 - **Chunking strategy comparison** built into the evaluation pipeline —
   swap strategies via a single config value
 
+## Screenshots
+![alt text](screenshots/image.png)
+![alt text](screenshots/image-1.png)
+![alt text](screenshots/image-2.png)
+![alt text](screenshots/image-3.png)
 ## Author
 
 Savio — Data Scientist with 3 years experience in NLP and LLMs.
