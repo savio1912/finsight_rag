@@ -5,6 +5,9 @@ langchain-huggingface==0.1.2
 langchain-experimental==0.3.4
 langchain-ollama==0.3.2
 
+#data
+unstructured
+
 # LLM (local via Ollama)
 ollama
 
