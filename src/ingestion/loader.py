@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import List
 import re
-from langchain_community.document_loaders import PyMuPDFLoader
+from langchain_community.document_loaders import UnstructuredHTMLLoader, PyMuPDFLoader
 from langchain.schema import Document
 
 def extract_metadata_from_filename(file_name: str) -> dict:
@@ -71,21 +71,46 @@ def load_pdf(file_path: str | Path) -> List[Document]:
         cleaned_pages.append(page)
         print(f"Loaded {len(cleaned_pages)} pages from {file_path.name}", end="\r")
         return cleaned_pages
+    
+def load_htm(file_path: str | Path) -> List[Document]:
+    """Load an HTM/HTML SEC filing."""
+    file_path = Path(file_path)
+    file_metadata = extract_metadata_from_filename(file_path.name)
+
+    loader = UnstructuredHTMLLoader(str(file_path))
+    docs = loader.load()
+
+    for doc in docs:
+        doc.metadata.update({
+            "ticker":    file_metadata["ticker"],
+            "year":      file_metadata["year"],
+            "form_type": file_metadata["form"],
+            "source":    file_path.name,
+        })
+        doc.page_content = clean_text(doc.page_content)
+
+    print(f"Loaded {len(docs)} sections from {file_path.name}")
+    return docs
 
 def load_all_pdfs(data_dir: str | Path) -> List[Document]:
     """
     Load every PDF in a directory.
     """
     data_dir = Path(data_dir)
-    pdf_files = list(data_dir.glob("*.pdf"))
+    files = list(data_dir.glob("*.pdf")) + \
+            list(data_dir.glob("*.htm")) + \
+            list(data_dir.glob("*.html"))
 
-    if not pdf_files:
+    if not files:
         raise ValueError(f"No PDF files found in {data_dir}")
 
     all_documents = []
-    for pdf_file in sorted(pdf_files):
-        docs = load_pdf(pdf_file)
+    for file in sorted(files):
+        if file.suffix.lower() == ".pdf":
+            docs = load_pdf(file)
+        else:
+            docs = load_htm(file)
         all_documents.extend(docs)
 
-    print(f"\nTotal pages loaded: {len(all_documents)} from {len(pdf_files)} files")
+    print(f"\nTotal pages loaded: {len(all_documents)} from {len(files)} files")
     return all_documents
