@@ -12,8 +12,6 @@ RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
 def build_reranker(base_retriever, top_n: int = TOP_K):
     """
-    Wrap a base retriever with a cross-encoder reranker.
-    Pipeline:
       Query → hybrid retriever (top-20) → cross-encoder → top-5
     """
     print(f"Loading reranker model: {RERANKER_MODEL}...")

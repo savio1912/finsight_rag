@@ -16,8 +16,7 @@ def build_dense_retriever(vectorstore: Chroma, k: int = TOP_K):
     Dense retriever using cosine similarity over ChromaDB vectors.
 
     search_type="mmr" uses Maximal Marginal Relevance — instead of
-    returning the top-K most similar chunks (which might all say the
-    same thing), MMR balances relevance with diversity.
+    returning the top-K most similar chunks.
     """
 
     retriever=vectorstore.as_retriever(search_type="mmr", search_kwargs={"k": k, "fetch_k": k*3, "lambda_mult": 0.7})
