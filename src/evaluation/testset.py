@@ -1,15 +1,6 @@
-# src/evaluation/testset.py
-
 # This is our golden test set — 20 questions across the filings
 # we downloaded. Ground truth answers are written by us after
 # manually reading the filings.
-#
-# Why manual? Because RAGAS needs reliable ground truth to compute
-# context recall. Auto-generated test sets exist but introduce noise.
-# For a portfolio project, 20 high-quality manual pairs is better
-# than 100 noisy auto-generated ones.
-
-# src/evaluation/testset.py
 
 TEST_SET = [
     # ── Apple 2025 (FY ended September 27, 2025) ──────────────────

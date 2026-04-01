@@ -77,6 +77,5 @@ if __name__ == "__main__":
             test_set=TEST_SET,
         )
 
-        # Save and display results
         save_results(combined_df)
         print_comparison_table(combined_df)

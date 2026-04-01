@@ -7,7 +7,6 @@ from datetime import datetime
 
 
 def save_results(df: pd.DataFrame, output_dir: str = "data/processed"):
-    """Save evaluation results to disk for the Streamlit UI to load."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 

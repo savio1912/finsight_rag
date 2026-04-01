@@ -1,5 +1,3 @@
-# app.py
-
 import streamlit as st
 import pandas as pd
 from pathlib import Path
@@ -87,9 +85,7 @@ with st.sidebar:
 tab1, tab2, tab3 = st.tabs(["💬 Q&A", "🔍 Retrieved Chunks", "📈 Evaluation"])
 
 
-# ══════════════════════════════════════════════════════════════════
 # TAB 1 — Q&A Interface
-# ══════════════════════════════════════════════════════════════════
 with tab1:
     st.header("Ask questions about SEC filings")
 
@@ -158,9 +154,7 @@ with tab1:
         st.warning("Please enter a question.")
 
 
-# ══════════════════════════════════════════════════════════════════
 # TAB 2 — Retrieved Chunks Inspector
-# ══════════════════════════════════════════════════════════════════
 with tab2:
     st.header("Retrieved chunks inspector")
     st.caption(
@@ -187,7 +181,7 @@ with tab2:
 
             with st.expander(
                 f"Chunk {i+1} — {ticker} {year} 10-K · Page {page}",
-                expanded=(i == 0),  # expand first chunk by default
+                expanded=(i == 0),  
             ):
                 # Metadata pills
                 col1, col2, col3, col4 = st.columns(4)
@@ -209,9 +203,7 @@ with tab2:
                 )
 
 
-# ══════════════════════════════════════════════════════════════════
 # TAB 3 — Evaluation Dashboard
-# ══════════════════════════════════════════════════════════════════
 with tab3:
     st.header("RAGAS Evaluation Dashboard")
     st.caption(

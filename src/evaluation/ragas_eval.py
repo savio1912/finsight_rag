@@ -28,7 +28,6 @@ def build_ragas_judges():
     RAGAS needs an LLM and embedding model to judge answers.
     We use the same local Mistral + HuggingFace setup — no OpenAI needed.
 
-    Why do we need judges?
     - Faithfulness: RAGAS asks the judge LLM to verify each claim
       in the answer against the retrieved context
     - Answer relevancy: RAGAS generates reverse questions from the
@@ -150,12 +149,6 @@ def compare_chunking_strategies(
     """
     Run the full evaluation across all three chunking strategies
     and return a combined DataFrame for comparison.
-
-    This is the key function that produces the comparison table
-    shown in the README and the Streamlit evaluation tab.
-
-    pipeline_builder_fn: a function that takes a strategy name
-    and returns a ready-to-use rag_chain
     """
     all_results = []
 
